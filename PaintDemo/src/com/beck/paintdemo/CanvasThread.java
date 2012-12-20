@@ -24,9 +24,13 @@ public class CanvasThread extends Thread {
             c = null;
             try {
                 c = _surfaceHolder.lockCanvas(null);
+               if (c != null)
+               {
                 synchronized (_surfaceHolder) {
                     _panel.onDraw(c);
+                
                 }
+               }
             } finally {
                 // do this in a finally so that if an exception is thrown
                 // during the above, we don't leave the Surface in an

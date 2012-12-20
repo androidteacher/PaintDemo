@@ -28,7 +28,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	 public Panel(Context context) {
 		   super(context);
 		    getHolder().addCallback(this);
-		    canvasthread = new CanvasThread(getHolder(), this);
+		   
 		    setFocusable(true);
 
 	    }
@@ -56,7 +56,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	
 	public void surfaceCreated(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
-	    canvasthread.setRunning(true);
+		 canvasthread = new CanvasThread(getHolder(), this);
+		canvasthread.setRunning(true);
 	    canvasthread.start();
 
 		
